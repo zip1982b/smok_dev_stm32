@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name Converter_ACDC)(type Legacy)(uri ${MY_LIB}/Converter_ACDC.lib)(options "")(descr ""))
+  (lib (name maxim)(type Legacy)(uri ${MY_LIB}/maxim.lib)(options "")(descr ""))
+  (lib (name RF_Module)(type Legacy)(uri ${MY_LIB}/RF_Module.lib)(options "")(descr ""))
+  (lib (name stm32f103c8t6-module-china)(type Legacy)(uri ${MY_LIB}/stm32f103c8t6-module-china.lib)(options "")(descr ""))
+)

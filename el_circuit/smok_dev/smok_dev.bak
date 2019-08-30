@@ -1,0 +1,82 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L stm32f103c8t6-module-china:stm32f103c8t6-module-china U?
+U 1 1 5D699677
+P 5900 3350
+F 0 "U?" H 5900 5087 60  0000 C CNN
+F 1 "stm32f103c8t6-module-china" H 5900 4981 60  0000 C CNN
+F 2 "myelin-kicad:stm32f103c8t6-module-china" H 5900 1650 60  0001 C CNN
+F 3 "" H 5500 3600 60  0000 C CNN
+	1    5900 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L max6675_china_shild:MAX6675_shild U?
+U 1 1 5D69A790
+P 9300 4150
+F 0 "U?" H 9628 4196 50  0000 L CNN
+F 1 "MAX6675_shild" H 9628 4105 50  0000 L CNN
+F 2 "" H 9300 4150 50  0001 C CNN
+F 3 "" H 9300 4150 50  0001 C CNN
+	1    9300 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L max6675_china_shild:MAX6675_shild U?
+U 1 1 5D69A8E3
+P 9300 3250
+F 0 "U?" H 9628 3296 50  0000 L CNN
+F 1 "MAX6675_shild" H 9628 3205 50  0000 L CNN
+F 2 "" H 9300 3250 50  0001 C CNN
+F 3 "" H 9300 3250 50  0001 C CNN
+	1    9300 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L max6675_china_shild:MAX6675_shild U?
+U 1 1 5D69A965
+P 9300 2350
+F 0 "U?" H 9628 2396 50  0000 L CNN
+F 1 "MAX6675_shild" H 9628 2305 50  0000 L CNN
+F 2 "" H 9300 2350 50  0001 C CNN
+F 3 "" H 9300 2350 50  0001 C CNN
+	1    9300 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L max6675_china_shild:MAX6675_shild U?
+U 1 1 5D69A9D3
+P 9300 5050
+F 0 "U?" H 9628 5096 50  0000 L CNN
+F 1 "MAX6675_shild" H 9628 5005 50  0000 L CNN
+F 2 "" H 9300 5050 50  0001 C CNN
+F 3 "" H 9300 5050 50  0001 C CNN
+	1    9300 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L max6675_china_shild:MAX6675_shild U?
+U 1 1 5D69AA57
+P 9300 1450
+F 0 "U?" H 9628 1496 50  0000 L CNN
+F 1 "MAX6675_shild" H 9628 1405 50  0000 L CNN
+F 2 "" H 9300 1450 50  0001 C CNN
+F 3 "" H 9300 1450 50  0001 C CNN
+	1    9300 1450
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
