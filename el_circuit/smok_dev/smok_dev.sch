@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:smok_dev-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -105,10 +106,83 @@ Wire Wire Line
 	8750 3900 8750 1500
 Wire Wire Line
 	8750 1500 8900 1500
+$Comp
+L DC_DC_LM2576T:DC_DC_2576T U?
+U 1 1 5D6AF550
+P 4050 6100
+F 0 "U?" H 4025 6565 50  0000 C CNN
+F 1 "DC_DC_2576T" H 4025 6474 50  0000 C CNN
+F 2 "" H 4050 6100 50  0001 C CNN
+F 3 "" H 4050 6100 50  0001 C CNN
+	1    4050 6100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 5950 5050 5950
+Wire Wire Line
+	5050 5950 5050 5150
+Wire Wire Line
+	5050 5150 4650 5150
+Wire Wire Line
+	4650 5150 4650 4800
+Wire Wire Line
+	4650 4800 4850 4800
+Wire Wire Line
+	4700 6250 5250 6250
+Wire Wire Line
+	5250 6250 5250 5300
+Wire Wire Line
+	5250 5300 4450 5300
+Wire Wire Line
+	4450 5300 4450 4650
+Wire Wire Line
+	4450 4650 4850 4650
+Wire Wire Line
+	8900 1300 8100 1300
+Entry Wire Line
+	8000 1200 8100 1300
+Wire Wire Line
+	8900 2200 8100 2200
+Entry Wire Line
+	8000 2100 8100 2200
+Entry Wire Line
+	8000 3000 8100 3100
+Entry Wire Line
+	7800 1300 7900 1200
+Entry Wire Line
+	7800 2000 7900 2100
+Entry Wire Line
+	7800 2900 7900 3000
+Connection ~ 5050 5950
+Wire Wire Line
+	5050 5950 7900 5950
+Wire Wire Line
+	7900 5950 7900 3150
+Entry Wire Line
+	7900 3150 8000 3050
+Connection ~ 5250 6250
+Wire Wire Line
+	5250 6250 7700 6250
+Wire Wire Line
+	7700 6250 7700 2850
 Wire Wire Line
 	8350 3200 8900 3200
+Wire Wire Line
+	8100 3100 8900 3100
+Wire Wire Line
+	7900 1200 8900 1200
+Wire Wire Line
+	7900 2100 8900 2100
+Wire Wire Line
+	7900 3000 8900 3000
 Wire Bus Line
 	8450 1500 8450 3300
 Wire Bus Line
+	7800 1150 7800 3200
+Wire Bus Line
+	8000 1150 8000 3200
+Wire Bus Line
 	8250 1350 8250 3450
+Entry Wire Line
+	7700 2850 7800 2750
 $EndSCHEMATC
