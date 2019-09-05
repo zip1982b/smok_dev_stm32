@@ -56,8 +56,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */     
-
+#include "max6675.h"
 /* USER CODE END Includes */
+
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
@@ -76,13 +77,13 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+osThreadId ReadTempTaskHandle;
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-   
+void StartReadTempTask(void const * argument);   
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
@@ -117,7 +118,8 @@ void MX_FREERTOS_Init(void) {
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
+ osThreadDef(ReadTempTask, StartReadTempTask, osPriorityNormal, 0, 128);
+ ReadTempTaskHandle = osThreadCreate(osThread(ReadTempTask), NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
@@ -139,14 +141,52 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+#if defined DEBUG
+    printf("StartDefaultTask is working .. \r\n");
+#endif
+    HAL_GPIO_WritePin(GPIOC, LED_Blue_Pin, GPIO_PIN_RESET);
+    osDelay(1000);
+    HAL_GPIO_WritePin(GPIOC, LED_Blue_Pin, GPIO_PIN_SET);
+    osDelay(1000);
   }
   /* USER CODE END StartDefaultTask */
 }
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-     
+ void StartReadTempTask(void const * argument)
+{
+ #if defined DEBUG
+    printf("StartReadTempTask is working .. \r\n");
+#endif
+  uint8_t answer = 0;
+  uint16_t reg = 0;
+  float temper = 0;
+  
+  /* USER CODE BEGIN StartReadTempTask */
+  /* Infinite loop */
+  for(;;)
+  {
+#if defined DEBUG
+    printf("read max6675 .. \r\n");
+#endif
+    answer = max6675ReadReg(&reg);
+    if(answer == MAX6675_OK)
+    {
+#if defined DEBUG
+    printf("MAX6675_OK\r\n");
+#endif
+      temper = max6675Temp(reg);
+      
+#if defined DEBUG
+    printf("temperature = %0.2f\r\n", temper);
+#endif
+      
+    }
+    osDelay(2000);
+  }
+  /* USER CODE END StartReadTempTask */
+}    
 /* USER CODE END Application */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
