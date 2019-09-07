@@ -59,7 +59,6 @@
 #include "max6675.h"
 /* USER CODE END Includes */
 
-
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -162,28 +161,36 @@ void StartDefaultTask(void const * argument)
   uint8_t answer = 0;
   uint16_t reg = 0;
   float temper = 0;
+  uint8_t i;
   
   /* USER CODE BEGIN StartReadTempTask */
   /* Infinite loop */
   for(;;)
   {
-#if defined DEBUG
-    printf("read max6675 .. \r\n");
-#endif
-    answer = max6675ReadReg(&reg);
-    if(answer == MAX6675_OK)
-    {
-#if defined DEBUG
-    printf("MAX6675_OK\r\n");
-#endif
-      temper = max6675Temp(reg);
+	  i = 1;
+	  while(i <= 3)
+	  {
+			#if defined DEBUG
+				printf("read max6675 #%i .. \r\n", i);
+			#endif
+			answer = max6675ReadReg(&reg, i);
+			if(answer == MAX6675_OK)
+			{
+			#if defined DEBUG
+				printf("MAX6675_OK\r\n");
+			#endif
+			temper = max6675Temp(reg);
       
-#if defined DEBUG
-    printf("temperature = %0.2f\r\n", temper);
-#endif
-      
-    }
-    osDelay(2000);
+			#if defined DEBUG
+				printf("temperature Sensor#%i = %0.2f\r\n", i, temper);
+			#endif
+			}
+			answer = 0;
+			reg = 0;
+			temper = 0;
+			osDelay(3000);
+			i++;
+	  }    
   }
   /* USER CODE END StartReadTempTask */
 }    
